@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin:0;
+			padding:0;
+		}
+		#list{
+            list-style: none;
+            width:600px;
+            margin:50px auto;
+
+        }
+        #list li{
+            text-align: center;
+            width: 100%;
+            height:50px;
+            line-height: 50px;
+            font-size: 18px;
+            border: 1px dashed red;
+
+        }
+        #list li.bg{
+            background: red;
+        }
+        #list li.bg1{
+            background: yellow;
+        }
+
+	</style>
+</head>
+<body>
+	<ul id="list">
+    	<li class="bg">央视独家视频：中美元首举行会晤</li>
+    	<li class="bg1">水幕电影项目疑层层转包 官方:已成立专项调查组</li>
+    	<li>央视独家视频：中美元首举行会晤</li>
+    	<li>央视独家视频：中美元首举行会晤</li>
+    	<li>央视独家视频：中美元首举行会晤</li>
+    	<li>央视独家视频：中美元首举行会晤</li>
+    	<li>央视独家视频：中美元首举行会晤</li>
+    	<li>央视独家视频：中美元首举行会晤</li>
+	</ul>
+	<script>
+		var oLis = document.getElementsByTagName("li"),
+			len = oLis.length;
+		for(var i = 0; i < len; i++){
+			if(i % 2 == 0){
+				oLis[i].style.background = "red";
+			}else if( i % 2 == 1){
+				oLis[i].style.background = "yellow";
+			}
+			oLis[i].oldBg = oLis[i].style.background;
+			oLis[i].onmouseover = function () {
+				this.style.background = "blue";
+			}
+			oLis[i].onmouseout = function () {
+				this.style.background = this.oldBg;
+			}
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div>
+		<div>空调</div>
+	</div>
+
+	<script>
+		var box = document.getElementsByTagName("div")[0];
+		console.log(box.innerHTML);
+		console.log(box.innerText);
+		box.innerHTML += "<a href='http://taobao.com'>百度一下</a>"
+	</script>
+</body>
+</html>

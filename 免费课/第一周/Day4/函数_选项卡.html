@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<style>
+	*{
+		margin:0;
+		padding:0;
+	}
+
+	#tab{
+		width:400px;
+		height:280px;
+		/*border:1px solid red;*/
+		margin:100px auto;
+	}
+	ul{
+		list-style: none;
+		overflow: hidden;
+	}
+	ul li {
+		float:left;
+		width:80px;
+		height:40px;
+		text-align: center;
+		line-height: 40px;
+		border:1px solid pink;
+		margin-right: 3px;
+		cursor:pointer;
+	}
+	#tab div {
+		display: none;
+		width:400px;
+		height:200px;
+		border:1px solid pink;
+		text-align: center;
+		line-height: 200px;
+	}
+	 #tab div.select{
+            display: block;
+            color:blue;
+        }
+      ul li.select{
+            background: blue;
+            color:white;
+        }
+</style>
+<body>
+	<!-- 
+	对象的定义：
+		开辟一个堆内存地址
+		存储键值对
+		赋值空间地址 
+	-->
+
+
+<input type="text" id="form">
+<div class="btn"></div>
+
+<div id="tab">
+	<ul>
+		<li class="select">视频</li>
+		<li>秒拍</li>
+		<li>综艺</li>
+	</ul>
+	<div class="select">sdlfj</div>
+	<div>23r</div>
+	<div>355fb</div>
+</div>
+
+
+<script>
+	// function sum (a,b,c) {
+
+	// }
+
+
+	function sum() {
+		var total = 0;
+		var len = arguments.length;
+		for(var i = 0;i < len;i ++){
+			var cur = Number(arguments[i]);
+			if(!isNaN(cur)){
+				total += cur;
+			}
+		}
+		return total;
+    }
+    var oTab = document.getElementById("tab");
+    var oLis = oTab.getElementsByTagName("li");
+    var oDiv = oTab.getElementsByTagName("div");
+    var liLen = oLis.length;
+    for(var i = 0; i < liLen;i ++){
+    	// oLis[i].index = i;
+    	var iCur = oLis[i];
+    	iCur.onclick = function () {
+    		for(var j = 0;j < liLen; i=j ++){
+    			oLis[j].className = "";
+    			oDiv[j].className = "";
+    		}
+    		this.className = "select";
+    		oDiv[this.index].className = "select";
+    	}
+    }
+
+
+
+
+
+
+	
+</script>
+</body>
+</html>

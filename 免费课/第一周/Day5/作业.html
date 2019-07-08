@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	马老师帅吗？
+	<input type="text">
+	<div class="box"></div>
+	<script>
+		var box = document.getElementsByClassName("box")[0],
+			input = document.getElementsByTagName("input")[0];
+		input.onkeyup = function () {
+			if(this.value == "帅"){
+				box.innerText = 'true'
+			}else if(this.value == "不帅"){
+				box.innerText = "false"
+			}
+		}
+
+
+
+
+		// function sum (m) {
+		// 	if(m == 1){
+		// 		return m
+		// 	}
+		// 	if(m % 3 == 0){
+		// 		return m + sum(m - 1);
+		// 	}else{
+		// 		return sum(m - 1);
+		// 	}
+		// }
+		// var s = sum(100);
+		// console.log(s);
+
+
+
+
+		function sum (m) {
+			if(m == 100){
+				return m 
+			}
+			if(m % 3 == 0 && m % 5 ==0){
+				// console.log(m);
+				return m + sum(m + 1);
+			}else{
+				return sum(m + 1);
+			}
+		}
+		var s = sum(1);
+		console.log(s)
+	</script>
+</body>
+</html>

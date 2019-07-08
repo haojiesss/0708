@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>	
+		*{
+			margin:0px;
+			padding:0px;
+		}
+		#time{
+			width:400PX;
+			height: 80PX;
+			border:3px dashed greenyellow;
+			line-height: 80px;
+			font-size:40px;
+			text-align: center;
+			margin:30px auto;
+		}
+	</style>
+</head>
+<body>
+	<div id="time"></div>
+	<buttone id="btn">STOP</button>
+	<!--<script>
+		var time = document.getElementById("time"),
+			targetTime = new Date("2019/07/15 11:48:00");
+		// function countDown() {
+		// 	var hours = targetTime.getHours() - new Date().getHours() - 1,
+		// 		minutes = 60 - new Date().getMinutes() - 1,
+		// 		seconds = 60 - new Date().getSeconds() - 1;
+		// 	time.innerText = addZero(hours) + " : " + addZero(minutes) + " : " + addZero(seconds);
+		// }
+		// countDown();
+		function addZero(val){
+			if(val < 10){
+				val = "0" + val;
+			}
+			return val;
+		}
+		// setInterval(countDown,1000);
+
+		function clearIn() {
+			clearInterval(t);
+			time.innerText = "活动已结束";
+		}
+		function countDown(){
+			var correntTime = new Date(),
+				difTime = targetTime - correntTime,
+				// day = Math.floor( (difTime / ( 1000 * 60 * 60 ))/24 ),
+				hours = Math.floor( difTime / ( 1000 * 60 * 60 ) ),
+				// day = Math.floor(hours / 24);
+				minutes = Math.floor( (difTime - hours*1000*60*60)/(1000*60)),
+				secondes = Math.floor((difTime - hours*1000*60*60-minutes*1000*60)/(1000));
+				if(difTime <= 0){
+					clearIn();
+					return;	
+				}
+			time.innerText = addZero(hours) + "时" + addZero(minutes) + "分" + addZero(secondes) + "秒";
+		}
+		countDown();
+		var t = setInterval(countDown,5)
+
+		var  url = "https://www.baidu.com/s?wd=京东&rsv_spt=1&rsv_iqid=0xdd505e6a000043df&issp=1"
+		function queryUrl(str){
+			var index = str.indexOf("?") + 1,
+				newStr = str.substr(index),
+				ary = newStr.split("&"),
+				obj = {};
+			ary.forEach(function(a,index,all){
+				var newAry = a.split("=");
+				obj[newAry[0]] = newAry[1]
+			});
+			return obj;
+		}
+		var a = queryUrl(url)
+		console.log(a);
+	 </script> -->
+
+	 <script src="F:\珠峰培训\第二周\Day5\countDown.js"></script>
+	 <script>
+	 		var btn = document.getElementById("btn");
+			var time = document.getElementById("time");
+			var target = new Date('2019/07/07 17:52:00');
+			// countDown(time,target);
+			btn.onclick = function() {
+				if(i%2==0){
+					countDown(time,target,this);
+				}else{
+					stop(this);
+				}
+			}
+	 </script>
+</body>
+</html>

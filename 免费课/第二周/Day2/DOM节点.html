@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div>
+		<p></p>
+		<!-- 这是注释 -->
+		<div id="box"></div>
+	</div>
+	<script>
+		var box = document.getElementById("box");
+		function getBorther(curEle){
+			if("previousElementSibling" in curEle){
+				return curEle.previousElementSibling;
+			}
+			var bor = curEle.previousSibling;
+			while(bor){
+				if(bor.nodeType == 1){
+					return bor;
+				}
+				bor = bor.previousSibling;
+			}
+			return null;
+		}
+
+	</script>
+</body>
+</html>

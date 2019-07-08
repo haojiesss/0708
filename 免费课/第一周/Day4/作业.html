@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>作业</title>
+</head>
+<body>
+	<!-- 1： -->
+		<input type="text" class="n">
+		<select name="v" id="v">
+			<option value="+">+</option>
+			<option value="-">-</option>
+			<option value="*">*</option>
+			<option value="/">/</option>
+		</select>
+		<input type="text" class="m">
+		<input type="button" class="btn" value="等于">
+		<input type="text" class="i">
+	<!-- 5： -->
+	<!-- <input type="text" class="olis">
+	<input type="text" class="oL"> -->
+	<script>
+// 1．用户输入两个数，计算任意两个数的加减乘除
+// 要求：1) 使用parseInt方法类型转换
+		var btn = document.getElementsByClassName("btn")[0];
+		btn.onclick = function () {
+			var n = document.getElementsByClassName("n")[0],
+				m = document.getElementsByClassName("m")[0],
+				i = document.getElementsByClassName("i")[0],
+				v = document.getElementById("v"),
+				index = v.selectedIndex,
+				val = v[index].value,
+				nVal = Number(n.value),
+				mVal = Number(m.value);
+			switch(val){
+				case "+" :
+					i.value = nVal + mVal;
+					break;
+				case "-" :
+					i.value = nVal - mVal;
+					break;
+				case "*" :
+					i.value = nVal * mVal;
+					break;
+				case "/" :
+					i.value = nVal / mVal;
+					break;
+			}
+		}
+
+
+
+
+
+// 2、判断一个年份是闰年还是平年(提示：条件运算符)
+// 闰年条件：  year 能被4整除，不能被100整除，或 可以被400整除
+		// function year (n){
+		// 	if(n % 4 == 0 && n % 100 != 0){
+		// 		return n + "年是闰年";
+		// 	}else{
+		// 		return n + "年不是闰年";
+		// 	}
+		// }
+		// year(1988)
+// 3、判断一个数是偶数还是奇数
+		// var n = prompt("text")
+		// if(n % 2 == 0){
+		// 	console.log("偶数")
+		// }else if(n % 2 == 1){
+		// 	console.log("奇数")
+		// }  
+// 4、判断一个数是正数还是负数
+		// var n = prompt("text");
+		// if(n > 0){
+		// 	console.log("正数");
+		// }else if(n < 0){
+		// 	console.log("负数");
+		// }
+// 5、用户输入一个三位数，用程序计算三位数字的和。
+// 比如：  
+// 用户输入155，就弹出11
+// 用户输入316，就弹出10
+// 用户输入989，就弹出26
+// 用户输入678，就弹出21
+		// var n = prompt("text");
+		// var g = n % 10;//3
+		// var s = n % 100;//23
+		// var b = n - s;
+		// s = (s - g) / 10;
+		// b /= 100;
+		// console.log(g + s + b)
+
+// 6、一个加油站为了鼓励车主多加油，所以加的多有优惠。（嵌套）
+// 92 号汽油，每升 6 元；如果大于等于 20升，那么每升 5.9 ；
+// 97 号汽油，每升 7 元；如果大于等于 30升，那么每升 6.95
+// 编写 JS 程序，用户输入自己的汽油编号，然后输入自己加多少升，弹出价格。
+		// function sum (olis, oL){
+		// 	if(olis === 92){
+		// 		return oL >= 20 ? oL * 5.9 : oL * 6;
+		// 	}else if(olis === 97){
+		// 		return oL >= 30 ? oL * 6.59 : oL * 7;
+		// 	}else{
+		// 		console.log("请输入正确的油品号");
+		// 	}
+		// }
+		// sum(92,20);
+// 	7、输入月份，显示当月的天数
+// 要求：1) 利用case穿透简化代码
+		// function day (n){
+		// 	switch(n % 2 == 1){
+		// 		case false:
+		// 			return "31天";
+		// 			break;
+		// 		case true:
+		// 			return "30天";
+		// 			break;
+		// 	}
+		// }
+		// day(1)		
+// 8、输入0-6，判断哪一天是工作日，哪一天是休息日？（case穿透）
+		// function day (n){
+		// 	switch(n){
+		// 		case 1:
+		// 			return "工作日";
+		// 			break;
+		// 		case 2:
+		// 			return "工作日";
+		// 			break;
+		// 		case 3:
+		// 			return "工作日";
+		// 			break;
+		// 		case 4:
+		// 			return "工作日";
+		// 			break;
+		// 		case 5:
+		// 			return "工作日";
+		// 			break;
+		// 		case 6:
+		// 			return "休息日";
+		// 			break;
+		// 	}
+		// }
+		// day(1)
+	</script>
+</body>
+</html>

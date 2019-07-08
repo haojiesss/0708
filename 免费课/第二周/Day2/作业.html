@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+	<style>
+		*{
+			margin:0;
+			padding:0;
+		}
+		ul{
+			list-style: none;
+			margin:10px 0px;
+		}
+		li{
+			height:50px;
+			line-height: 50px;
+		}
+		button{
+			float:right;
+			height:50px;
+			width:50px;
+			border-radius: 50%;
+		}
+		div{
+			width:500px;
+			height:100%;
+			margin:100px auto;
+		}
+		button.btn{
+			height:40px;
+			width:40px;
+			margin-right: 100px;
+		}
+		input{
+			height:35px;
+			width:250px;
+		}
+	</style>
+</head>
+<body>
+	<div>
+		<input type="text">
+		<button class="btn">delete</button>
+		<ul>
+
+		</ul>
+	</div>
+	<script>
+		// 1.作业
+    	// 1.输入框输入内容，当失去鼠标焦点时，input框下新增一条li;把input的内容放到li中，并清空input框；
+    	// 2. 每一个li上有一个button删除按钮；点击删除按钮，删除整个li;
+
+    	var input = document.getElementsByTagName("input")[0],
+    		ul = document.getElementsByTagName("ul")[0];
+    	input.onblur = function () {
+    		var val = input.value;
+    		var li = document.createElement("li");
+    		var oDelete = document.createElement("button");
+    		oDelete.innerText = "删除";
+    		li.innerText = val;
+    		if(val){
+    			ul.appendChild(li);
+    			li.appendChild(oDelete);
+    		}
+    		oDelete.onclick = function () {
+    			myDelete(ul,li);
+    			myStyle();
+    		}
+    		input.value = "";
+    		myStyle();
+    	}
+    	function myDelete(a,b){
+    			a.removeChild(b);
+    	}
+
+    	var oLi = document.getElementsByTagName("li");
+    	function myStyle(){
+    		var len = oLi.length;
+    		for(var i = 0;i < len;i ++){
+    			if(i % 2 == 0){
+    				oLi[i].style.color = "red";
+    			}else if(i % 2 == 1){
+    				oLi[i].style.color = "yellow";
+    			}
+    			oLi[i].oDlg = oLi[i].style.color; 
+    			oLi[i].onmouseover = function () {
+    				this.style.color = "black";
+    			}
+    			oLi[i].onmouseout = function () {
+    				this.style.color = this.oDlg;	
+    			}
+    		}
+    	}
+    	myStyle();
+    	var btn = document.getElementsByClassName("btn")[0];
+    	btn.onclick = function () {
+    		ul.innerHTML = "";
+    	}
+
+
+
+
+
+
+  //   	var ary = [49,42,34,13,67,45];
+		// var newAry = [];
+		// newAry.push(ary[0]);
+		// for(var i = 1; i < ary.length;i++){
+		// 	var cur = ary[i];
+		// 	for(var j = 0;j < newAry.length;j++){
+		// 		if(cur < newAry[j]){
+		// 			if(j == 0){
+		// 				newAry.unshift(cur);
+		// 				break;
+		// 			}else{
+		// 				newAry.splice(j + 1,0,cur);
+		// 				break;
+		// 			}
+		// 		}
+		// 	}
+		// }
+		// console.log(newAry);
+	</script>
+</body>
+</html>

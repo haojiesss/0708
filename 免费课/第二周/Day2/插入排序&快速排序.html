@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		var ary = [49,42,34,13,67,45];
+		var newAry = [];
+		newAry.push(ary[0]);
+		// for(var i = 1; i < ary.length;i ++){
+		// 	var cur = ary[i];
+		// 	for(var j = newAry.length - 1;j >= 0;j--){
+		// 		if(cur < newAry[j]){
+		// 			if(j == 0){
+		// 				newAry.unshift(cur);
+		// 			}
+		// 		}else{
+		// 			newAry.splice(j+1,0,cur);
+		// 			break;
+		// 		}
+		// 	}
+		// }
+		// console.log(newAry);
+
+
+		// 快速排序： 获取数组的中间项，让数组中的每一项都和该值进行比较，比它小的放左边，比它大的放右边；然后再将左边和右边的数组进行同样的操作，直到当前数组的长度小于1；不需要再进行比较，最后将所有的左边数组和中间项和右面的数组连接到一起；实现排序
+		function quickSort(ary){
+			if(ary.length <= 1){
+				return ary
+			}
+			var left = [];
+			var right = [];
+			var myIndex = Math.floor(ary.length / 2);
+			var myAry = ary.splice(myIndex,1);
+			for(var i = 0;i < ary.length;i++){
+				var cur = ary[i];
+				if(cur > myAry){
+					right.push(cur);
+				}else{
+					left.push(cur);
+				}
+			}
+			return quickSort(left).concat(myAry,quickSort(right));
+		}
+		var newAry = quickSort(ary);
+		console.log(newAry)
+				
+
+	</script>
+</body>
+</html>

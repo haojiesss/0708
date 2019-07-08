@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin:0px;
+			padding:0px;
+		}
+		#code{
+			margin:50px auto;
+			width:200px;
+			height:80px;
+			line-height: 80px;
+			text-align: center;
+			border:5px solid greenyellow;
+			color: greenyellow;
+			font-size: 25px;
+			border-radius: 10px;
+			cursor:pointer;
+		}
+	</style>
+</head>
+<body>
+	<div id="code">SFGS</div>
+	<script>
+		var box = document.getElementById("code")
+		// function getCode() {
+		// 	var str = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+		// 	var i = 0;
+		// 	var newStr = "";
+		// 	while(i < 4){
+		// 		var index = Math.round( Math.random() * 61 );
+		// 		newStr += str[index];
+		// 		i++;
+		// 	}
+		// 	box.innerText = newStr;
+		// }
+		// box.onclick = getCode;
+		// getCode();
+
+		function getCode() {
+			var str = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+			var i = 0;
+			var newStr = "";
+			while(i < 4){
+				var index = Math.round( Math.random() * 61 );
+				if(newStr.toUpperCase().indexOf(str[index].toUpperCase()) == -1){
+					newStr += str[index];
+					i++
+				}
+			}
+			box.innerText = newStr;
+		}
+		box.onclick = getCode;
+		getCode();
+	</script>
+</body>
+</html>
